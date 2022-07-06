@@ -1,0 +1,9 @@
+.nav{
+    display: flex;
+    font-size: 18px;
+    padding: 2px;
+}
+/* Todas as div receber essa configuração */
+.nav > div{
+    padding: 10px;
+}
