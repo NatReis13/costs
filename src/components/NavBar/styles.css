@@ -1,0 +1,26 @@
+.nav{
+    display: flex;
+    padding: 1em;
+    justify-content: space-between;
+    background-color: #222;
+    width: 100%;
+   
+}
+/* Todas as div receber essa configuração */
+.nav > div{
+    display: flex;
+    align-items: center;
+   
+
+}
+
+.itemStyleLink{
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    margin: 10px;
+}
+
+.itemStyleLink:hover {
+    color: #fb3;
+}
