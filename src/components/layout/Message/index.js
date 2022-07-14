@@ -1,8 +1,10 @@
-import style from '..Message/Message.module.css'
+// import styles from '..Message/Message.module.css'
 
-function Message({type, msg}){
-return(
-    <p>mensagem</p>
-)
-}
-export default Message
+// function Message({type, msg}){
+// return <div className={`${styles.message} ${styles[type]}`}>{msg}</div>
+        
+        
+    
+
+// }
+// export default Message

@@ -5,10 +5,12 @@ import styles from "./Form.module.css";
 import Input from "../input";
 import Select from "../Select";
 import SubmitButton from "../SubmitButton";
+import { Link } from "react-router-dom";
 
 function ProjectForm({ handleSubmit, btnText, projectData }) {
   const [categories, setCategories] = useState([]);
   const [project, setProject] = useState(projectData || {});
+
   useEffect(() => {
     fetch("http://localhost:5000/categories", {
       method: "GET",
@@ -18,6 +20,7 @@ function ProjectForm({ handleSubmit, btnText, projectData }) {
     })
       .then((resp) => resp.json())
       .then((data) => {
+        console.log(data);
         setCategories(data);
       })
       .catch((err) => console.log(err));
@@ -25,7 +28,6 @@ function ProjectForm({ handleSubmit, btnText, projectData }) {
 
   const submit = (e) => {
     e.preventDefault();
-    console.log(project)
     handleSubmit(project);
   };
 
@@ -34,20 +36,19 @@ function ProjectForm({ handleSubmit, btnText, projectData }) {
   }
 
   function handleCategory(e) {
-    // console.log({
-    //   id: e.target.value,
-    //   name: e.target.option[e.target.selectedIndex].text,
-
-    // })
+    // console.log('step1',e.target.value)
+    // console.log('step2',e.target)
+    // console.log('step3',e.target.selectedIndex)
     setProject({
       ...project,
       category: {
         id: e.target.value,
-        name: e.target.option[e.target.selectedIndex].text,
-
+        name: e.target.options[e.target.selectedIndex].text,
       },
     });
   }
+
+  // useEffect(() => {console.log('step4',project)},[project] )
 
   return (
     <form onSubmit={submit} className={styles.form}>
@@ -58,6 +59,7 @@ function ProjectForm({ handleSubmit, btnText, projectData }) {
           name="name"
           placeholder="Insira o nome do projeto"
           handleOnChage={handleChange}
+          value={project.name ? project.name : ""}
         />
       </div>
 
@@ -68,6 +70,7 @@ function ProjectForm({ handleSubmit, btnText, projectData }) {
           name="budget"
           placeholder="Insira o orçamento total"
           handleOnChage={handleChange}
+          value={project.budget}
         />
       </div>
 
@@ -77,11 +80,11 @@ function ProjectForm({ handleSubmit, btnText, projectData }) {
           text="Selecione a categoria"
           option={categories}
           handleOnChage={handleCategory}
-          value={project.category ? project.category.id : ''}
+          value={project.category ? project.category.id : ""}
         />
       </div>
       <div>
-        <SubmitButton text={btnText} />
+        <Link to="/Projects"><SubmitButton text={btnText} /></Link>
       </div>
     </form>
   );
