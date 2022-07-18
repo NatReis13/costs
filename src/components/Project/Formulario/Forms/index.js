@@ -20,7 +20,7 @@ function ProjectForm({ handleSubmit, btnText, projectData }) {
     })
       .then((resp) => resp.json())
       .then((data) => {
-        console.log(data);
+       
         setCategories(data);
       })
       .catch((err) => console.log(err));
@@ -84,7 +84,7 @@ function ProjectForm({ handleSubmit, btnText, projectData }) {
         />
       </div>
       <div>
-        <Link to="/Projects"><SubmitButton text={btnText} /></Link>
+       <SubmitButton text={btnText} />
       </div>
     </form>
   );

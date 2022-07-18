@@ -3,25 +3,25 @@ import style from "./NewProject.module.css";
 import ProjectForm from "../../components/Project/Formulario/Forms/index";
 
 function NewProject() {
-  const history =  useNavigate();
+  const navigate =  useNavigate();
 
   function createPost(project) {
     //initialize cost end service
     project.cost = 0;
     project.services = [];
-
+console.log('strep 10',project )
     fetch('http://localhost:5000/projects', {
-      methot: 'POST',
+      method: 'POST',
       headers: {
         'content-type': 'application/json',
       },
       body: JSON.stringify(project),
     }) 
-    .then((resp) => resp.jason)
+    .then((resp) => resp.json())
     .then((data) => {
-      console.log(data)
+      // console.log(data)
       //redirect
-      history('/Projects', {message: 'Projeto criado com sucesso!'})
+      navigate('/projects', {state: {  message: 'Projeto criado com sucesso!'}})
     })
     .catch((err) => console.log(err))
   }
