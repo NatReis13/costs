@@ -9,7 +9,7 @@ function NewProject() {
     //initialize cost end service
     project.cost = 0;
     project.services = [];
-console.log('strep 10',project )
+// console.log('strep 10',project )
     fetch('http://localhost:5000/projects', {
       method: 'POST',
       headers: {

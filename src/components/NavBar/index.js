@@ -22,7 +22,7 @@ function NavBar() {
         </div>
 
         <div>
-          <Link to="/NewProject" className="itemStyleLink">
+          <Link to="/Projects" className="itemStyleLink">
             Projetos
           </Link>
         </div>

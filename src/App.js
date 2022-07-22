@@ -7,13 +7,14 @@ import Company from "./pages/Company/Company";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import Projects from "./pages/Projects";
+import Project from "./pages/Project";
 import Container from "../src/components/layout/Container/Container"
 
 
 function App() {
   return (
     <div className="App">
-      
+
       <NavBar />
       <Container customClass="min-height">
         <Routes>
@@ -22,8 +23,9 @@ function App() {
           <Route path="/NewProject" element={<NewProject />} />
           <Route path="/Company" element={<Company />} />
           <Route path="/Projects" element={<Projects />} />
+          <Route path="/Project/:id" element={<Project />} />
         </Routes>
-        
+
       </Container>
       <Footer />
     </div>
