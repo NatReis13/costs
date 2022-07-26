@@ -28,7 +28,12 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-   height: 400px;
+   height: 480px;
+}
+
+.service_form_container_footer{
+    display: flex;
+    justify-content: space-between;
 }
 
 .btn{
@@ -48,4 +53,4 @@
 
 .project_info{
     width: 100%;
-}
+  }
