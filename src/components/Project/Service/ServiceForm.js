@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 
 import Input from '../Formulario/input'
 import SubmitButton from '../Formulario/SubmitButton'
@@ -6,10 +6,19 @@ import SubmitButton from '../Formulario/SubmitButton'
 import Styles from '../Service/ServiceForm.module.css'
 
 
-function ServiceForm({handleSubmit, btnText, projectData}) {
-    function submit() { }
+function ServiceForm({ handleSubmit, btnText, projectData }) {
 
-    function handleChange(e) { }
+    const [service, setService] = useState({})
+
+    function submit(e) {
+        e.preventDefault()
+        projectData.services.push(service)
+        handleSubmit(projectData)
+    }
+
+    const handleChange = useCallback((e) => {
+        setService({ ...service, [e.target.name]: e.target.value })
+    }, [service]);
 
     return (
         <form onSubmit={submit} className={Styles.form}>
@@ -26,6 +35,7 @@ function ServiceForm({handleSubmit, btnText, projectData}) {
                 name="cost"
                 placeholder="Insira o valor total"
                 handleOnChange={handleChange}
+
             />
 
             <Input type="text"
@@ -34,7 +44,7 @@ function ServiceForm({handleSubmit, btnText, projectData}) {
                 placeholder="Descreva o serviço"
                 handleOnChange={handleChange}
             />
-            <SubmitButton text={btnText}/>
+            <SubmitButton text={btnText} />
         </form>
     )
 }

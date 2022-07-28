@@ -28,6 +28,7 @@ function ProjectForm({ handleSubmit, btnText, projectData }) {
 
   const submit = (e) => {
     e.preventDefault();
+    console.log('qwe',project);
     handleSubmit(project);
   };
 
@@ -36,9 +37,6 @@ function ProjectForm({ handleSubmit, btnText, projectData }) {
   }
 
   function handleCategory(e) {
-    // console.log('step1',e.target.value)
-    // console.log('step2',e.target)
-    // console.log('step3',e.target.selectedIndex)
     setProject({
       ...project,
       category: {
@@ -48,8 +46,6 @@ function ProjectForm({ handleSubmit, btnText, projectData }) {
     });
   }
 
-  // useEffect(() => {console.log('step4',project)},[project] )
-
   return (
     <form onSubmit={submit} className={styles.form}>
       <div>
@@ -58,8 +54,7 @@ function ProjectForm({ handleSubmit, btnText, projectData }) {
           text="Nome do projeto"
           name="name"
           placeholder="Insira o nome do projeto"
-          handleOnChage={handleChange}
-          value={project.name ? project.name : ""}
+          handleOnChange={handleChange}
         />
       </div>
 
@@ -69,8 +64,7 @@ function ProjectForm({ handleSubmit, btnText, projectData }) {
           text="Orçamento do projeto"
           name="budget"
           placeholder="Insira o orçamento total"
-          handleOnChage={handleChange}
-          value={project.budget}
+          handleOnChange={handleChange}
         />
       </div>
 
@@ -79,8 +73,7 @@ function ProjectForm({ handleSubmit, btnText, projectData }) {
           name="category_id"
           text="Selecione a categoria"
           option={categories}
-          handleOnChage={handleCategory}
-          value={project.category ? project.category.id : ""}
+          handleOnChange={handleCategory}
         />
       </div>
       <div>
