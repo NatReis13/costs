@@ -10,7 +10,7 @@ function NewProject() {
     project.cost = 0;
     project.services = [];
 // console.log('strep 10',project )
-    fetch('http://localhost:5000/projects', {
+    fetch('https://json-server-cost.herokuapp.com/projects', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
