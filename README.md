@@ -1,3 +1,3 @@
 # live
 
-https://helpful-frangipane-d2ee6b.netlify.app  👍👍👍
+https://costs01.netlify.app  👍👍👍
